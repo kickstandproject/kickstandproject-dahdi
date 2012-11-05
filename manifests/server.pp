@@ -33,6 +33,7 @@ class dahdi::server(
   $defaults = {
     'loadzone'    => 'us',
     'defaultzone' => 'us',
+    'spans'       => {},
   }
   $settings_real = merge($defaults, $settings)
 
