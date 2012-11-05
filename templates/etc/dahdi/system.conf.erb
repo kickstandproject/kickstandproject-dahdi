@@ -7,7 +7,7 @@
 
 <%- scope.lookupvar('dahdi::server::settings_real')['spans'].sort.each do |key,val| -%>
 span = <%= val['span'] %>
-<%- val.reject { |i,j| i == 'span' }.each do |option,value| -%>
+<%- val.reject { |i,j| i == 'span' }.sort.each do |option,value| -%>
 <%= option %> = <%= value %>
 <%- end -%>
 
