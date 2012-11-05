@@ -6,7 +6,7 @@
 #
 # [*monitor*]
 #
-# [*servers*]
+# [*settings*]
 #
 # === Variables
 #
