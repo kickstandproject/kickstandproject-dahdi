@@ -18,6 +18,15 @@ describe 'dahdi::server' do
     end
 
     it do
+      should contain_file('/etc/dahdi/modules').with({
+        'ensure' => 'file',
+        'group'  => 'root',
+        'mode'   => '0644',
+        'owner'  => 'root',
+      })
+    end
+
+    it do
       should contain_file('/etc/dahdi/system.conf').with({
         'ensure' => 'file',
         'group'  => 'root',

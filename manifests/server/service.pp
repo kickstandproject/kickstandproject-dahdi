@@ -19,7 +19,6 @@ class dahdi::server::service {
     hasrestart => $dahdi::params::hasrestart,
     hasstatus  => $dahdi::params::hasstatus,
     require    => Class['dahdi::server::config'],
-    subscribe  => File[$dahdi::params::configfile],
   }
 }
 

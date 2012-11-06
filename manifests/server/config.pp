@@ -15,12 +15,24 @@
 class dahdi::server::config {
   file { $dahdi::params::basedir:
     ensure  => directory,
+    force   => true,
+    notify  => Class['dahdi::server::service'],
+    purge   => true,
+    recurse => true,
     require => Class['dahdi::server::install'],
+  }
+
+  file { "${dahdi::params::basedir}/modules":
+    ensure  => file,
+    content => template('dahdi/etc/dahdi/modules.erb'),
+    notify  => Class['dahdi::server::service'],
+    require => File[$dahdi::params::basedir],
   }
 
   file { $dahdi::params::configfile:
     ensure  => file,
     content => template('dahdi/etc/dahdi/system.conf.erb'),
+    notify  => Class['dahdi::server::service'],
     require => File[$dahdi::params::basedir],
   }
 }

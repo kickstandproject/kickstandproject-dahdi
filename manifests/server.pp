@@ -27,6 +27,7 @@
 # the top of the source tree.
 #
 class dahdi::server(
+  $modules = [],
   $monitor = false,
   $settings = {},
 ) {
